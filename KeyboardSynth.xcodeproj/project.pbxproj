@@ -7,21 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6E82C871E865565B5BD23F1E /* Pods_KeyboardSynth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64E6736662FFC292F2079D29 /* Pods_KeyboardSynth.framework */; };
 		D34E40A81FDA150900E99CA1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34E40A71FDA150900E99CA1 /* AppDelegate.swift */; };
-		D34E40AA1FDA150900E99CA1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34E40A91FDA150900E99CA1 /* ViewController.swift */; };
 		D34E40AD1FDA150900E99CA1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D34E40AB1FDA150900E99CA1 /* Main.storyboard */; };
 		D34E40AF1FDA150900E99CA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D34E40AE1FDA150900E99CA1 /* Assets.xcassets */; };
 		D34E40B21FDA150900E99CA1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D34E40B01FDA150900E99CA1 /* LaunchScreen.storyboard */; };
+		D34F71401FDB431600D3027A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34F713F1FDB431600D3027A /* SettingsViewController.swift */; };
+		D382D5B91FDA164C00A5A9B0 /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D382D5B81FDA164C00A5A9B0 /* KeyboardViewController.swift */; };
+		D382D5BB1FDA43A700A5A9B0 /* SynthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D382D5BA1FDA43A700A5A9B0 /* SynthModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3972A712B6201A23C3498BE5 /* Pods-KeyboardSynth.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KeyboardSynth.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KeyboardSynth/Pods-KeyboardSynth.debug.xcconfig"; sourceTree = "<group>"; };
+		61BE272F65952E476BA57E3A /* Pods-KeyboardSynth.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KeyboardSynth.release.xcconfig"; path = "Pods/Target Support Files/Pods-KeyboardSynth/Pods-KeyboardSynth.release.xcconfig"; sourceTree = "<group>"; };
+		64E6736662FFC292F2079D29 /* Pods_KeyboardSynth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KeyboardSynth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D34E40A41FDA150900E99CA1 /* KeyboardSynth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KeyboardSynth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D34E40A71FDA150900E99CA1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D34E40A91FDA150900E99CA1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D34E40AC1FDA150900E99CA1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D34E40AE1FDA150900E99CA1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D34E40B11FDA150900E99CA1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D34E40B31FDA150900E99CA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D34F713F1FDB431600D3027A /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		D382D5B81FDA164C00A5A9B0 /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
+		D382D5BA1FDA43A700A5A9B0 /* SynthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynthModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +37,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E82C871E865565B5BD23F1E /* Pods_KeyboardSynth.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A4DB2316EA1C9BF342825703 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3972A712B6201A23C3498BE5 /* Pods-KeyboardSynth.debug.xcconfig */,
+				61BE272F65952E476BA57E3A /* Pods-KeyboardSynth.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		D34E409B1FDA150900E99CA1 = {
 			isa = PBXGroup;
 			children = (
 				D34E40A61FDA150900E99CA1 /* KeyboardSynth */,
 				D34E40A51FDA150900E99CA1 /* Products */,
+				A4DB2316EA1C9BF342825703 /* Pods */,
+				DAD8F16FBEB52FABF7B266F2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +74,24 @@
 		D34E40A61FDA150900E99CA1 /* KeyboardSynth */ = {
 			isa = PBXGroup;
 			children = (
+				D382D5B81FDA164C00A5A9B0 /* KeyboardViewController.swift */,
+				D382D5BA1FDA43A700A5A9B0 /* SynthModel.swift */,
 				D34E40A71FDA150900E99CA1 /* AppDelegate.swift */,
-				D34E40A91FDA150900E99CA1 /* ViewController.swift */,
 				D34E40AB1FDA150900E99CA1 /* Main.storyboard */,
+				D34F713F1FDB431600D3027A /* SettingsViewController.swift */,
 				D34E40AE1FDA150900E99CA1 /* Assets.xcassets */,
 				D34E40B01FDA150900E99CA1 /* LaunchScreen.storyboard */,
 				D34E40B31FDA150900E99CA1 /* Info.plist */,
 			);
 			path = KeyboardSynth;
+			sourceTree = "<group>";
+		};
+		DAD8F16FBEB52FABF7B266F2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				64E6736662FFC292F2079D29 /* Pods_KeyboardSynth.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +101,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D34E40B61FDA150900E99CA1 /* Build configuration list for PBXNativeTarget "KeyboardSynth" */;
 			buildPhases = (
+				415C3F44C5C48D3A125B4F8E /* [CP] Check Pods Manifest.lock */,
 				D34E40A01FDA150900E99CA1 /* Sources */,
 				D34E40A11FDA150900E99CA1 /* Frameworks */,
 				D34E40A21FDA150900E99CA1 /* Resources */,
+				EF126BF823E90756B6149BD5 /* [CP] Embed Pods Frameworks */,
+				1A3561CD89DAFF50533A7A1E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -131,13 +164,63 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1A3561CD89DAFF50533A7A1E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KeyboardSynth/Pods-KeyboardSynth-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		415C3F44C5C48D3A125B4F8E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		EF126BF823E90756B6149BD5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KeyboardSynth/Pods-KeyboardSynth-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D34E40A01FDA150900E99CA1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D34E40AA1FDA150900E99CA1 /* ViewController.swift in Sources */,
 				D34E40A81FDA150900E99CA1 /* AppDelegate.swift in Sources */,
+				D382D5B91FDA164C00A5A9B0 /* KeyboardViewController.swift in Sources */,
+				D382D5BB1FDA43A700A5A9B0 /* SynthModel.swift in Sources */,
+				D34F71401FDB431600D3027A /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,7 +294,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -262,7 +345,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -272,6 +355,7 @@
 		};
 		D34E40B71FDA150900E99CA1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3972A712B6201A23C3498BE5 /* Pods-KeyboardSynth.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -287,6 +371,7 @@
 		};
 		D34E40B81FDA150900E99CA1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 61BE272F65952E476BA57E3A /* Pods-KeyboardSynth.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
