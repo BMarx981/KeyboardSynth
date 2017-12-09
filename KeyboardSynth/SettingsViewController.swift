@@ -48,7 +48,5 @@ class SettingsViewController: UIViewController {
             dest?.synthModel.adsr?.sustainLevel = sustainValue
             dest?.synthModel.adsr?.releaseDuration = releaseValue
         }
-        
     }
-
 }

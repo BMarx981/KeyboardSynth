@@ -15,12 +15,12 @@ protocol SynthModelDelegate {
 
 class SynthModel {
     
-    var osc: AKOscillator?
+    var osc: AKOscillatorBank?
     var mixer: AKMixer?
     var adsr: AKAmplitudeEnvelope?
     
     init() {
-        osc = AKOscillator(waveform: AKTable(.sawtooth))
+        osc = AKOscillatorBank(waveform: AKTable(.sawtooth),attackDuration: 0.3, decayDuration: 0.5, sustainLevel: 0.4, releaseDuration: 0.1,)
         osc?.amplitude = 0.6
         adsr = AKAmplitudeEnvelope(osc)
         adsr?.start()
