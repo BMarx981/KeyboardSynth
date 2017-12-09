@@ -43,10 +43,10 @@ class SettingsViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "KeyboardSegue" {
             let dest = segue.destination as? KeyboardViewController
-            dest?.synthModel.adsr?.attackDuration = attackValue
-            dest?.synthModel.adsr?.decayDuration = decayValue
-            dest?.synthModel.adsr?.sustainLevel = sustainValue
-            dest?.synthModel.adsr?.releaseDuration = releaseValue
+            dest?.synthModel.osc?.attackDuration = attackValue
+            dest?.synthModel.osc?.decayDuration = decayValue
+            dest?.synthModel.osc?.sustainLevel = sustainValue
+            dest?.synthModel.osc?.releaseDuration = releaseValue
         }
     }
 }

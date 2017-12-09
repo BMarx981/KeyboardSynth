@@ -57,6 +57,11 @@ class KeyboardViewController: UITableViewController, SynthModelDelegate {
         return freq
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        synthModel.osc?.stop(noteNumber: MIDINoteNumber(48))
+    }
+    
     var synthModel = SynthModel()
 
     func didHitKey(_ synthModel: SynthModel, at index: IndexPath) {

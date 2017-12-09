@@ -17,14 +17,10 @@ class SynthModel {
     
     var osc: AKOscillatorBank?
     var mixer: AKMixer?
-    var adsr: AKAmplitudeEnvelope?
     
     init() {
-        osc = AKOscillatorBank(waveform: AKTable(.sawtooth),attackDuration: 0.3, decayDuration: 0.5, sustainLevel: 0.4, releaseDuration: 0.1,)
-        osc?.amplitude = 0.6
-        adsr = AKAmplitudeEnvelope(osc)
-        adsr?.start()
-        mixer = AKMixer(adsr!)
+        osc = AKOscillatorBank(waveform: AKTable(.sawtooth),attackDuration: 0.3, decayDuration: 0.5, sustainLevel: 1.0, releaseDuration: 0.1)
+        mixer = AKMixer(osc!)
         mixer?.start()
         
         AudioKit.output = mixer
@@ -32,9 +28,6 @@ class SynthModel {
     }
     
     func playKey(noteNum: Double) {
-        osc?.frequency = noteNum
-        adsr?.start()
-        osc?.stop()
-        osc?.start()
+        osc?.play(noteNumber: MIDINoteNumber(48), velocity: MIDIVelocity(90), frequency: noteNum)
     }
 }
