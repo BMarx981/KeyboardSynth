@@ -13,7 +13,7 @@
         <scene sceneID="XV5-go-YVW">
             <objects>
                 <tableViewController id="SLX-Ay-KuB" customClass="KeyboardViewController" customModule="KeyboardSynth" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="yZa-6I-xGK">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" allowsSelectionDuringEditing="YES" allowsMultipleSelection="YES" allowsMultipleSelectionDuringEditing="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="yZa-6I-xGK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -25,6 +25,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <gestureRecognizers/>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -34,6 +35,7 @@
                     </tableView>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cgm-tG-PcE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <gestureRecognizer id="dH2-YB-a2L"/>
             </objects>
             <point key="canvasLocation" x="1860" y="123.68815592203899"/>
         </scene>
@@ -51,10 +53,10 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="TGg-Zs-oSE">
-                                <rect key="frame" x="105" y="256" width="165" height="156"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="TGg-Zs-oSE" userLabel="Amp Stack View">
+                                <rect key="frame" x="103" y="256" width="183" height="156"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="QtG-dc-xcJ" userLabel="Label">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="QtG-dc-xcJ" userLabel="Amp Label">
                                         <rect key="frame" x="0.0" y="0.0" width="10.5" height="156"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KR0-lg-8sh">
@@ -83,32 +85,32 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="WQY-BD-GK1" userLabel="Slider">
-                                        <rect key="frame" x="22.5" y="0.0" width="142.5" height="156"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="WQY-BD-GK1" userLabel="Amp Slider">
+                                        <rect key="frame" x="22.5" y="0.0" width="160.5" height="156"/>
                                         <subviews>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.10000000000000001" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Hgj-Ji-CDX">
-                                                <rect key="frame" x="-2" y="0.0" width="146.5" height="31"/>
+                                                <rect key="frame" x="-2" y="0.0" width="164.5" height="31"/>
                                                 <color key="thumbTintColor" red="0.40483940972222221" green="0.32549370659722221" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <connections>
                                                     <action selector="attackSlider:" destination="RW6-lM-iZP" eventType="valueChanged" id="hBo-ZB-be4"/>
                                                 </connections>
                                             </slider>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.29999999999999999" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="MDm-hU-Pnr">
-                                                <rect key="frame" x="-2" y="42" width="146.5" height="31"/>
+                                                <rect key="frame" x="-2" y="42" width="164.5" height="31"/>
                                                 <color key="thumbTintColor" red="0.40483940972222221" green="0.32549370659722221" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <connections>
                                                     <action selector="decaySlider:" destination="RW6-lM-iZP" eventType="valueChanged" id="ek9-EH-5hc"/>
                                                 </connections>
                                             </slider>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="2pw-v8-Nh9">
-                                                <rect key="frame" x="-2" y="84" width="146.5" height="31"/>
+                                                <rect key="frame" x="-2" y="84" width="164.5" height="31"/>
                                                 <color key="thumbTintColor" red="0.40483940972222221" green="0.32549370659722221" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <connections>
                                                     <action selector="sustainSlider:" destination="RW6-lM-iZP" eventType="valueChanged" id="dlN-Bf-FK6"/>
                                                 </connections>
                                             </slider>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.10000000000000001" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="7BV-n4-Pq3">
-                                                <rect key="frame" x="-2" y="126" width="146.5" height="31"/>
+                                                <rect key="frame" x="-2" y="126" width="164.5" height="31"/>
                                                 <color key="thumbTintColor" red="0.40483940972222221" green="0.32549370659722221" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <connections>
                                                     <action selector="releaseSlider:" destination="RW6-lM-iZP" eventType="valueChanged" id="thL-IJ-Qnc"/>
@@ -118,15 +120,64 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amplitude Envelope" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yDz-Nc-Qae">
+                                <rect key="frame" x="88.5" y="221.5" width="198.5" height="27.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="OaX-vu-SXa" userLabel="Filter Stack View">
+                                <rect key="frame" x="107" y="460" width="189" height="68"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Filter Freq" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jml-0g-MoS">
+                                        <rect key="frame" x="34.5" y="0.0" width="120" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="4FQ-XD-kB1"/>
+                                            <constraint firstAttribute="width" constant="120" id="MU0-db-ZEG"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Lgm-bN-DPE">
+                                        <rect key="frame" x="-2" y="38" width="193" height="31"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="189" id="Jwb-X6-z2e"/>
+                                            <constraint firstAttribute="height" constant="30" id="xCT-RX-Jji"/>
+                                        </constraints>
+                                        <color key="thumbTintColor" red="0.40483940969999999" green="0.32549370659999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="sustainSlider:" destination="RW6-lM-iZP" eventType="valueChanged" id="Pim-uK-XIn"/>
+                                        </connections>
+                                    </slider>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="TGg-Zs-oSE" firstAttribute="leading" secondItem="qtM-Qh-NTS" secondAttribute="leading" constant="103" id="1Az-Sm-keR"/>
+                            <constraint firstItem="yDz-Nc-Qae" firstAttribute="centerX" secondItem="qtM-Qh-NTS" secondAttribute="centerX" id="2hn-yd-fqc"/>
+                            <constraint firstAttribute="bottom" secondItem="OaX-vu-SXa" secondAttribute="bottom" constant="139" id="8Zn-be-iBE"/>
                             <constraint firstItem="TGg-Zs-oSE" firstAttribute="centerY" secondItem="qtM-Qh-NTS" secondAttribute="centerY" id="CB9-0G-TPM"/>
-                            <constraint firstItem="TGg-Zs-oSE" firstAttribute="centerX" secondItem="qtM-Qh-NTS" secondAttribute="centerX" id="ERp-TV-rdb"/>
+                            <constraint firstItem="OaX-vu-SXa" firstAttribute="top" secondItem="qtM-Qh-NTS" secondAttribute="top" constant="460" id="EPj-KW-JuF"/>
                             <constraint firstItem="izh-Xm-o76" firstAttribute="leading" secondItem="T0H-aX-v9b" secondAttribute="leading" constant="8" id="JbU-kl-0Yc"/>
+                            <constraint firstItem="T0H-aX-v9b" firstAttribute="trailing" secondItem="OaX-vu-SXa" secondAttribute="trailing" constant="79" id="Pki-2V-tEU"/>
+                            <constraint firstItem="T0H-aX-v9b" firstAttribute="bottom" secondItem="OaX-vu-SXa" secondAttribute="bottom" constant="139" id="Tjf-r7-dgb"/>
+                            <constraint firstItem="OaX-vu-SXa" firstAttribute="top" secondItem="qtM-Qh-NTS" secondAttribute="top" constant="460" id="WSq-f9-f3m"/>
+                            <constraint firstItem="TGg-Zs-oSE" firstAttribute="centerY" secondItem="qtM-Qh-NTS" secondAttribute="centerY" id="Win-MM-G6Y"/>
+                            <constraint firstItem="OaX-vu-SXa" firstAttribute="leading" secondItem="T0H-aX-v9b" secondAttribute="leading" constant="107" id="X4O-BH-6v7"/>
+                            <constraint firstItem="TGg-Zs-oSE" firstAttribute="top" secondItem="qtM-Qh-NTS" secondAttribute="top" constant="256" id="gBY-ZT-qvZ"/>
+                            <constraint firstAttribute="trailing" secondItem="TGg-Zs-oSE" secondAttribute="trailing" constant="89" id="knx-m8-nQv"/>
                             <constraint firstItem="izh-Xm-o76" firstAttribute="top" secondItem="T0H-aX-v9b" secondAttribute="top" constant="8" id="nWQ-5C-KD0"/>
-                            <constraint firstItem="TGg-Zs-oSE" firstAttribute="leading" secondItem="T0H-aX-v9b" secondAttribute="leading" constant="105" id="qwl-n4-Zz7"/>
+                            <constraint firstItem="T0H-aX-v9b" firstAttribute="trailing" secondItem="TGg-Zs-oSE" secondAttribute="trailing" constant="89" id="o7C-r4-eFF"/>
+                            <constraint firstItem="TGg-Zs-oSE" firstAttribute="top" secondItem="qtM-Qh-NTS" secondAttribute="top" constant="256" id="ozx-Uh-7ad"/>
+                            <constraint firstItem="TGg-Zs-oSE" firstAttribute="top" secondItem="yDz-Nc-Qae" secondAttribute="bottom" constant="7" id="rDa-9G-bcM"/>
                             <constraint firstItem="T0H-aX-v9b" firstAttribute="trailing" secondItem="izh-Xm-o76" secondAttribute="trailing" constant="8" id="uDZ-dh-s31"/>
+                            <constraint firstItem="OaX-vu-SXa" firstAttribute="leading" secondItem="qtM-Qh-NTS" secondAttribute="leading" constant="107" id="uli-F0-K6w"/>
+                            <constraint firstAttribute="trailing" secondItem="OaX-vu-SXa" secondAttribute="trailing" constant="79" id="v7B-9T-gCU"/>
+                            <constraint firstItem="TGg-Zs-oSE" firstAttribute="leading" secondItem="T0H-aX-v9b" secondAttribute="leading" constant="103" id="vUw-7B-ot0"/>
+                            <constraint firstItem="OaX-vu-SXa" firstAttribute="top" secondItem="TGg-Zs-oSE" secondAttribute="bottom" constant="48" id="vrT-aR-dqb"/>
+                            <constraint firstAttribute="bottom" secondItem="TGg-Zs-oSE" secondAttribute="bottom" constant="255" id="z9v-gb-1WQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="T0H-aX-v9b"/>
                     </view>

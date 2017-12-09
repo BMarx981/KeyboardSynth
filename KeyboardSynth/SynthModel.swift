@@ -13,21 +13,56 @@ protocol SynthModelDelegate {
     func didHitKey(_ synthModel: SynthModel, at index: IndexPath)
 }
 
-class SynthModel {
+class SynthModel: SettingsDelegate {
     
     var osc: AKOscillatorBank?
     var mixer: AKMixer?
+    var attack = 0.0
+    var decay = 0.0
+    var sustain = 0.0
+    var release = 0.0
     
     init() {
-        osc = AKOscillatorBank(waveform: AKTable(.sawtooth),attackDuration: 0.3, decayDuration: 0.5, sustainLevel: 1.0, releaseDuration: 0.1)
+        osc = AKOscillatorBank()
+        mixer = AKMixer()
+    }
+    
+    init(ack: Double, dec: Double, sus: Double, rel: Double) {
+        osc = AKOscillatorBank(waveform: AKTable(.sawtooth),attackDuration: ack, decayDuration: dec, sustainLevel: rel, releaseDuration: 0.1)
         mixer = AKMixer(osc!)
         mixer?.start()
-        
         AudioKit.output = mixer
         AudioKit.start()
     }
     
-    func playKey(noteNum: Double) {
-        osc?.play(noteNumber: MIDINoteNumber(48), velocity: MIDIVelocity(90), frequency: noteNum)
+    deinit {
+        osc = nil
+        mixer = nil
+        AudioKit.stop()
     }
+    
+    func playKey(noteNum: Int) {
+        osc?.play(noteNumber: MIDINoteNumber(noteNum), velocity: MIDIVelocity(127))
+    }
+    
+    func stopNote(noteNum: Int) {
+        osc?.stop(noteNumber: MIDINoteNumber(noteNum))
+    }
+    
+    func didSetAttack(atck: Double) {
+        attack = atck
+    }
+    
+    func didSetDecay(dec: Double) {
+        decay = dec
+    }
+    
+    func didSetSustain(sus: Double) {
+        sustain = sus
+    }
+    
+    func didSetRelease(rel: Double) {
+        release = rel
+    }
+    
 }

@@ -10,67 +10,22 @@ import UIKit
 import AudioKit
 
 class KeyboardViewController: UITableViewController, SynthModelDelegate {
-    
-    func getFrequencyForKey(with indexPath: IndexPath) -> Double {
-        var freq = 0.0
-        switch indexPath.row {
-        case 1: freq = 261.626
-        case 2: freq = 246.942
-        case 3: freq = 233.082
-        case 4: freq = 220.000
-        case 5: freq = 207.652
-        case 6: freq = 195.998
-        case 7: freq = 184.997
-        case 8: freq = 174.614
-        case 9: freq = 164.814
-        case 10: freq = 155.563
-        case 11: freq = 146.832
-        case 12: freq = 138.591
-        case 13: freq = 130.813
-        case 14: freq = 123.471
-        case 15: freq = 116.541
-        default: freq = 0
-        }
-        return freq
-    }
-    
-    func getNoteNum(with indexPath: IndexPath) -> Int {
-        var freq = 0
-        switch indexPath.row {
-        case 1: freq = 60
-        case 2: freq = 59
-        case 3: freq = 58
-        case 4: freq = 57
-        case 5: freq = 56
-        case 6: freq = 55
-        case 7: freq = 54
-        case 8: freq = 53
-        case 9: freq = 52
-        case 10: freq = 51
-        case 11: freq = 50
-        case 12: freq = 49
-        case 13: freq = 48
-        case 14: freq = 47
-        case 15: freq = 46
-        default: freq = 0
-        }
-        return freq
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(true)
-        synthModel.osc?.stop(noteNumber: MIDINoteNumber(48))
-    }
-    
+
+    var attack = 0.0
+    var decay = 0.0
+    var sustain = 0.0
+    var release = 0.0
     var synthModel = SynthModel()
 
     func didHitKey(_ synthModel: SynthModel, at index: IndexPath) {
-        synthModel.playKey(noteNum: getFrequencyForKey(with: index))
+        synthModel.playKey(noteNum: getNoteNum(with: index))
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        synthModel = SynthModel(ack: attack, dec: decay, sus: sustain, rel: release)
 
+        tableView.allowsMultipleSelection = true
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -93,6 +48,10 @@ class KeyboardViewController: UITableViewController, SynthModelDelegate {
 
         return 16
     }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60.0
+    }
 
     // MARK: - Table view delegate
 
@@ -102,7 +61,27 @@ class KeyboardViewController: UITableViewController, SynthModelDelegate {
 
         return cell
     }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
+    }
     
+    override func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
+        didHitKey(synthModel, at: indexPath)
+    }
+    
+    override func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
+        synthModel.stopNote(noteNum: getNoteNum(with: indexPath))
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        for num in 0...127 {
+            synthModel.osc?.stop(noteNumber: MIDINoteNumber(num))
+        }
+    }
+
+    //MARK: - Keyboard formats
     func getKeyColor(for index: Int) -> UIColor {
         var color = UIColor()
         switch index {
@@ -127,11 +106,29 @@ class KeyboardViewController: UITableViewController, SynthModelDelegate {
         return color
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        didHitKey(synthModel, at: indexPath)
-        tableView.deselectRow(at: indexPath, animated: false)
+    func getNoteNum(with indexPath: IndexPath) -> Int {
+        var freq = 0
+        switch indexPath.row {
+        case 0: freq = 61
+        case 1: freq = 60
+        case 2: freq = 59
+        case 3: freq = 58
+        case 4: freq = 57
+        case 5: freq = 56
+        case 6: freq = 55
+        case 7: freq = 54
+        case 8: freq = 53
+        case 9: freq = 52
+        case 10: freq = 51
+        case 11: freq = 50
+        case 12: freq = 49
+        case 13: freq = 48
+        case 14: freq = 47
+        case 15: freq = 46
+        default: freq = 0
+        }
+        return freq
     }
- 
 
     /*
     // Override to support conditional editing of the table view.
@@ -176,6 +173,30 @@ class KeyboardViewController: UITableViewController, SynthModelDelegate {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
+     
+     func getFrequencyForKey(with indexPath: IndexPath) -> Double {
+     var freq = 0.0
+     switch indexPath.row {
+     case 1: freq = 261.626
+     case 2: freq = 246.942
+     case 3: freq = 233.082
+     case 4: freq = 220.000
+     case 5: freq = 207.652
+     case 6: freq = 195.998
+     case 7: freq = 184.997
+     case 8: freq = 174.614
+     case 9: freq = 164.814
+     case 10: freq = 155.563
+     case 11: freq = 146.832
+     case 12: freq = 138.591
+     case 13: freq = 130.813
+     case 14: freq = 123.471
+     case 15: freq = 116.541
+     default: freq = 0
+     }
+     return freq
+     }
+     
     */
 
 }

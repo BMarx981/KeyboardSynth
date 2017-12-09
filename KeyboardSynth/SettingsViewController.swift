@@ -8,12 +8,20 @@
 
 import UIKit
 
+protocol SettingsDelegate {
+    func didSetAttack(atck: Double)
+    func didSetDecay(dec: Double)
+    func didSetSustain(sus: Double)
+    func didSetRelease(rel: Double)
+}
+
 class SettingsViewController: UIViewController {
     
-    var attackValue = 0.1
-    var decayValue = 0.2
-    var sustainValue = 0.5
-    var releaseValue = 0.1
+    var delegate: SettingsDelegate?
+    var attack = 0.0
+    var decay = 0.0
+    var sustain = 0.0
+    var release = 0.0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,16 +33,20 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func attackSlider(_ sender: UISlider) {
-        attackValue = Double(sender.value)
+        delegate?.didSetAttack(atck: Double(sender.value))
+        attack = Double(sender.value)
     }
     @IBAction func decaySlider(_ sender: UISlider) {
-        decayValue = Double(sender.value)
+        delegate?.didSetDecay(dec: Double(sender.value))
+        decay = Double(sender.value)
     }
     @IBAction func sustainSlider(_ sender: UISlider) {
-        sustainValue = Double(sender.value)
+        delegate?.didSetSustain(sus: Double(sender.value))
+        sustain = Double(sender.value)
     }
     @IBAction func releaseSlider(_ sender: UISlider) {
-        releaseValue = Double(sender.value)
+        delegate?.didSetRelease(rel: Double(sender.value))
+        release = Double(sender.value)
     }
     
     // MARK: - Navigation
@@ -43,10 +55,6 @@ class SettingsViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "KeyboardSegue" {
             let dest = segue.destination as? KeyboardViewController
-            dest?.synthModel.osc?.attackDuration = attackValue
-            dest?.synthModel.osc?.decayDuration = decayValue
-            dest?.synthModel.osc?.sustainLevel = sustainValue
-            dest?.synthModel.osc?.releaseDuration = releaseValue
         }
     }
 }
