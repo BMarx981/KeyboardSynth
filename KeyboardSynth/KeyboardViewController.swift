@@ -63,6 +63,10 @@ class KeyboardViewController: UITableViewController, SynthModelDelegate {
         synthModel.playKey(noteNum: getFrequencyForKey(with: index))
     }
     
+    func didStopKey(_ synthModel :SynthModel, at index: IndexPath) {
+        synthModel.stopKey()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -98,6 +102,14 @@ class KeyboardViewController: UITableViewController, SynthModelDelegate {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
+        didHitKey(synthModel, at: indexPath)
+    }
+    
+    override func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
+        didStopKey(synthModel, at: indexPath)
+    }
+    
     func getKeyColor(for index: Int) -> UIColor {
         var color = UIColor()
         switch index {
@@ -123,7 +135,6 @@ class KeyboardViewController: UITableViewController, SynthModelDelegate {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        didHitKey(synthModel, at: indexPath)
         tableView.deselectRow(at: indexPath, animated: false)
     }
  

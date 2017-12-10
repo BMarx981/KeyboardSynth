@@ -11,6 +11,7 @@ import AudioKit
 
 protocol SynthModelDelegate {
     func didHitKey(_ synthModel: SynthModel, at index: IndexPath)
+    func didStopKey(_ synthModel: SynthModel, at index: IndexPath)
 }
 
 class SynthModel {
@@ -19,22 +20,29 @@ class SynthModel {
     var mixer: AKMixer?
     var adsr: AKAmplitudeEnvelope?
     
+    
     init() {
         osc = AKOscillator(waveform: AKTable(.sawtooth))
         osc?.amplitude = 0.6
-        adsr = AKAmplitudeEnvelope(osc)
-        adsr?.start()
-        mixer = AKMixer(adsr!)
-        mixer?.start()
+
+        adsr = AKAmplitudeEnvelope(osc!)
+
         
-        AudioKit.output = mixer
+        AudioKit.output = adsr
         AudioKit.start()
     }
     
     func playKey(noteNum: Double) {
         osc?.frequency = noteNum
+        adsr?.attackDuration = 0.9
+        adsr?.decayDuration = 0.3
+        adsr?.sustainLevel = 1.0
+        adsr?.releaseDuration = 0.9
         adsr?.start()
-        osc?.stop()
         osc?.start()
+    }
+    
+    func stopKey() {
+        adsr?.stop()
     }
 }
