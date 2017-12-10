@@ -31,6 +31,7 @@ class KeyboardViewController: UITableViewController, SynthModelDelegate {
         case 15: freq = 116.541
         default: freq = 0
         }
+        print(freq)
         return freq
     }
     
@@ -61,6 +62,10 @@ class KeyboardViewController: UITableViewController, SynthModelDelegate {
 
     func didHitKey(_ synthModel: SynthModel, at index: IndexPath) {
         synthModel.playKey(noteNum: getFrequencyForKey(with: index))
+    }
+    
+    func didStopKey(_ synthModel: SynthModel) {
+        synthModel.stopKey()
     }
     
     override func viewDidLoad() {
@@ -123,11 +128,18 @@ class KeyboardViewController: UITableViewController, SynthModelDelegate {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        didHitKey(synthModel, at: indexPath)
         tableView.deselectRow(at: indexPath, animated: false)
     }
  
-
+    override func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
+        print("Good stuff")
+        didHitKey(synthModel, at: indexPath)
+    }
+    
+    override func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
+        print("Bad stuff")
+        didStopKey(synthModel)
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
