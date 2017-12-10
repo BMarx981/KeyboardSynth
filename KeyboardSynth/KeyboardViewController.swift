@@ -18,7 +18,7 @@ class KeyboardViewController: UITableViewController, SynthModelDelegate {
     var synthModel = SynthModel()
 
     func didHitKey(_ synthModel: SynthModel, at index: IndexPath) {
-        synthModel.playKey(noteNum: getNoteNum(with: index))
+        synthModel.playKey(noteNum: getNoteNum(with: index), atFreq: getFrequencyForKey(with: index))
     }
     
     override func viewDidLoad() {
@@ -129,6 +129,29 @@ class KeyboardViewController: UITableViewController, SynthModelDelegate {
         }
         return freq
     }
+    
+    func getFrequencyForKey(with indexPath: IndexPath) -> Double {
+        var freq = 0.0
+        switch indexPath.row {
+        case 1: freq = 261.626
+        case 2: freq = 246.942
+        case 3: freq = 233.082
+        case 4: freq = 220.000
+        case 5: freq = 207.652
+        case 6: freq = 195.998
+        case 7: freq = 184.997
+        case 8: freq = 174.614
+        case 9: freq = 164.814
+        case 10: freq = 155.563
+        case 11: freq = 146.832
+        case 12: freq = 138.591
+        case 13: freq = 130.813
+        case 14: freq = 123.471
+        case 15: freq = 116.541
+        default: freq = 0
+        }
+        return freq
+    }
 
     /*
     // Override to support conditional editing of the table view.
@@ -173,29 +196,6 @@ class KeyboardViewController: UITableViewController, SynthModelDelegate {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-     
-     func getFrequencyForKey(with indexPath: IndexPath) -> Double {
-     var freq = 0.0
-     switch indexPath.row {
-     case 1: freq = 261.626
-     case 2: freq = 246.942
-     case 3: freq = 233.082
-     case 4: freq = 220.000
-     case 5: freq = 207.652
-     case 6: freq = 195.998
-     case 7: freq = 184.997
-     case 8: freq = 174.614
-     case 9: freq = 164.814
-     case 10: freq = 155.563
-     case 11: freq = 146.832
-     case 12: freq = 138.591
-     case 13: freq = 130.813
-     case 14: freq = 123.471
-     case 15: freq = 116.541
-     default: freq = 0
-     }
-     return freq
-     }
      
     */
 

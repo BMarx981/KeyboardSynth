@@ -17,10 +17,10 @@ class SynthModel: SettingsDelegate {
     
     var osc: AKOscillatorBank?
     var mixer: AKMixer?
-    var attack = 0.0
-    var decay = 0.0
-    var sustain = 0.0
-    var release = 0.0
+    var attack = 0.1
+    var decay = 0.3
+    var sustain = 1.0
+    var release = 0.3
     
     init() {
         osc = AKOscillatorBank()
@@ -41,8 +41,13 @@ class SynthModel: SettingsDelegate {
         AudioKit.stop()
     }
     
-    func playKey(noteNum: Int) {
-        osc?.play(noteNumber: MIDINoteNumber(noteNum), velocity: MIDIVelocity(127))
+    func playKey(noteNum: Int, atFreq: Double) {
+        osc?.attackDuration = attack
+        osc?.decayDuration = decay
+        osc?.sustainLevel = sustain
+        osc?.releaseDuration = release
+        print(noteNum)
+        osc?.play(noteNumber: MIDINoteNumber(noteNum), velocity: MIDIVelocity(127), frequency: atFreq)
     }
     
     func stopNote(noteNum: Int) {
