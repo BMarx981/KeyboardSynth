@@ -20,14 +20,12 @@ class SynthModel {
     var mixer: AKMixer?
     var adsr: AKAmplitudeEnvelope?
     
-    
     init() {
         osc = AKOscillator(waveform: AKTable(.sawtooth))
         osc?.amplitude = 0.6
 
         adsr = AKAmplitudeEnvelope(osc!)
 
-        
         AudioKit.output = adsr
         AudioKit.start()
     }
