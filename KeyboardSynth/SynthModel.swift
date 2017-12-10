@@ -34,10 +34,10 @@ class SynthModel {
     
     func playKey(noteNum: Double) {
         osc?.frequency = noteNum
-        adsr?.attackDuration = 0.9
-        adsr?.decayDuration = 0.3
-        adsr?.sustainLevel = 1.0
-        adsr?.releaseDuration = 0.9
+        adsr?.attackDuration = 0.3
+        adsr?.decayDuration = 0.9
+        adsr?.sustainLevel = 0.3
+        adsr?.releaseDuration = 0.5
         adsr?.start()
         osc?.start()
     }
