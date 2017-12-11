@@ -56,7 +56,7 @@
 		D34E409B1FDA150900E99CA1 = {
 			isa = PBXGroup;
 			children = (
-				D34E40A61FDA150900E99CA1 /* KeyboardSynth */,
+				D34E40A61FDA150900E99CA1 /* Controllers */,
 				D34E40A51FDA150900E99CA1 /* Products */,
 				A4DB2316EA1C9BF342825703 /* Pods */,
 				DAD8F16FBEB52FABF7B266F2 /* Frameworks */,
@@ -71,7 +71,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		D34E40A61FDA150900E99CA1 /* KeyboardSynth */ = {
+		D34E40A61FDA150900E99CA1 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				D382D5B81FDA164C00A5A9B0 /* KeyboardViewController.swift */,
@@ -83,7 +83,7 @@
 				D34E40B01FDA150900E99CA1 /* LaunchScreen.storyboard */,
 				D34E40B31FDA150900E99CA1 /* Info.plist */,
 			);
-			path = KeyboardSynth;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		DAD8F16FBEB52FABF7B266F2 /* Frameworks */ = {

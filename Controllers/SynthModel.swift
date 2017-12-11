@@ -20,22 +20,24 @@ class SynthModel {
     var mixer: AKMixer?
     var adsr: AKAmplitudeEnvelope?
     
+    var attack = 0.0
+    var decay = 0.0
+    var sustain = 0.0
+    var release = 0.0
+    
     init() {
         osc = AKOscillator(waveform: AKTable(.sawtooth))
-        osc?.amplitude = 0.6
-
         adsr = AKAmplitudeEnvelope(osc!)
-
         AudioKit.output = adsr
         AudioKit.start()
     }
     
     func playKey(noteNum: Double) {
         osc?.frequency = noteNum
-        adsr?.attackDuration = 0.3
-        adsr?.decayDuration = 0.9
-        adsr?.sustainLevel = 0.3
-        adsr?.releaseDuration = 0.5
+        adsr?.attackDuration = attack
+        adsr?.decayDuration = decay
+        adsr?.sustainLevel = sustain
+        adsr?.releaseDuration = release
         adsr?.start()
         osc?.start()
     }

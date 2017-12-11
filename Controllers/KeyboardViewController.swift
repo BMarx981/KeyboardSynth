@@ -10,11 +10,17 @@ import UIKit
 import AudioKit
 
 class KeyboardViewController: UITableViewController, SynthModelDelegate {
+    
+    var attack = 0.0
+    var decay = 0.0
+    var sustain = 0.0
+    var release = 0.0
 
     var synthModel = SynthModel()
 
     func didHitKey(_ synthModel: SynthModel, at index: IndexPath) {
         synthModel.playKey(noteNum: getFrequencyForKey(with: index))
+        print(synthModel.attack)
     }
     
     func didStopKey(_ synthModel :SynthModel, at index: IndexPath) {
@@ -24,6 +30,11 @@ class KeyboardViewController: UITableViewController, SynthModelDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        synthModel.attack = attack
+        synthModel.decay = decay
+        synthModel.sustain = sustain
+        synthModel.release = release
+        print(synthModel.attack)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 

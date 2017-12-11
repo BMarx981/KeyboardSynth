@@ -14,9 +14,15 @@ class SettingsViewController: UIViewController {
     var decayValue = 0.2
     var sustainValue = 0.5
     var releaseValue = 0.1
+    
+    var synth = SynthModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        synth.attack = attackValue
+        synth.decay = decayValue
+        synth.sustain = sustainValue
+        synth.release = releaseValue
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,15 +31,19 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func attackSlider(_ sender: UISlider) {
+        synth.attack = Double(sender.value)
         attackValue = Double(sender.value)
     }
     @IBAction func decaySlider(_ sender: UISlider) {
+        synth.decay = Double(sender.value)
         decayValue = Double(sender.value)
     }
     @IBAction func sustainSlider(_ sender: UISlider) {
+        synth.sustain = Double(sender.value)
         sustainValue = Double(sender.value)
     }
     @IBAction func releaseSlider(_ sender: UISlider) {
+        synth.release = Double(sender.value)
         releaseValue = Double(sender.value)
     }
     
@@ -41,14 +51,16 @@ class SettingsViewController: UIViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "KeyboardSegue" {
-            let dest = segue.destination as? KeyboardViewController
-            dest?.synthModel.adsr?.attackDuration = attackValue
-            dest?.synthModel.adsr?.decayDuration = decayValue
-            dest?.synthModel.adsr?.sustainLevel = sustainValue
-            dest?.synthModel.adsr?.releaseDuration = releaseValue
-        }
-        
-    }
+        print("hello0")
 
+        if segue.identifier == "KeyboardSegue" {
+            
+            let dest = segue.destination as? KeyboardViewController
+            dest?.synthModel = synth
+            dest?.attack = attackValue
+            dest?.decay = decayValue
+            dest?.sustain = sustainValue
+            dest?.release = releaseValue
+        }
+    }
 }
