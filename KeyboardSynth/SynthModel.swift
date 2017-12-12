@@ -11,7 +11,7 @@ import AudioKit
 
 protocol SynthModelDelegate {
     func didHitKey(_ synthModel: SynthModel, at index: IndexPath)
-    func didStopKey(_ synthModel: SynthModel)
+    func didStopKey(_ synthModel: SynthModel, at index: IndexPath)
 }
 
 class SynthModel {
@@ -20,36 +20,30 @@ class SynthModel {
     var decayValue = 0.0
     var sustainValue = 0.0
     var releaseValue = 0.0
-    var amp = 1.0
+    var amp = 127
     
-    var osc: AKOscillator?
+    var osc: AKOscillatorBank?
     var mixer: AKMixer?
-    var adsr: AKAmplitudeEnvelope?
     
     init() {
-        osc = AKOscillator(waveform: AKTable(.sawtooth))
-        osc?.amplitude = amp
-        osc?.start()
+        osc = AKOscillatorBank(waveform: AKTable(.sawtooth))
         mixer = AKMixer(osc!)
         mixer?.start()
-        adsr = AKAmplitudeEnvelope(mixer!)
         
-        AudioKit.output = adsr
+        AudioKit.output = mixer
         AudioKit.start()
     }
     
     func playKey(noteNum: Double) {
-        osc?.frequency = noteNum
-        
-        adsr?.attackDuration = attackValue
-        adsr?.decayDuration = decayValue
-        adsr?.sustainLevel = sustainValue
-        adsr?.releaseDuration = releaseValue
-        print(attackValue)
-        adsr?.start()
+        osc?.attackDuration = attackValue
+        osc?.decayDuration = decayValue
+        osc?.sustainLevel = sustainValue
+        osc?.releaseDuration = releaseValue
+        osc?.play(noteNumber: MIDINoteNumber(noteNum), velocity: MIDIVelocity(amp))
+
     }
     
-    func stopKey() {
-        adsr?.stop()
+    func stopKey(_ noteNum: Int) {
+        osc?.stop(noteNumber: MIDINoteNumber(noteNum))
     }
 }

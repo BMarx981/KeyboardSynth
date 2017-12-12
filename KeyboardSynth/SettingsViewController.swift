@@ -27,7 +27,6 @@ class SettingsViewController: UIViewController {
 
     @IBAction func attackSlider(_ sender: UISlider) {
         attackValue = Double(sender.value)
-        print(attackValue)
     }
     @IBAction func decaySlider(_ sender: UISlider) {
         decayValue = Double(sender.value)
