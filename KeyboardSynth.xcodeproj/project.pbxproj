@@ -13,6 +13,7 @@
 		D34E40AF1FDA150900E99CA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D34E40AE1FDA150900E99CA1 /* Assets.xcassets */; };
 		D34E40B21FDA150900E99CA1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D34E40B01FDA150900E99CA1 /* LaunchScreen.storyboard */; };
 		D34F71401FDB431600D3027A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34F713F1FDB431600D3027A /* SettingsViewController.swift */; };
+		D34F71621FE047EB00D3027A /* Filters.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34F71611FE047EB00D3027A /* Filters.swift */; };
 		D382D5B91FDA164C00A5A9B0 /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D382D5B81FDA164C00A5A9B0 /* KeyboardViewController.swift */; };
 		D382D5BB1FDA43A700A5A9B0 /* SynthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D382D5BA1FDA43A700A5A9B0 /* SynthModel.swift */; };
 /* End PBXBuildFile section */
@@ -28,6 +29,7 @@
 		D34E40B11FDA150900E99CA1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D34E40B31FDA150900E99CA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D34F713F1FDB431600D3027A /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		D34F71611FE047EB00D3027A /* Filters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filters.swift; sourceTree = "<group>"; };
 		D382D5B81FDA164C00A5A9B0 /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
 		D382D5BA1FDA43A700A5A9B0 /* SynthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynthModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -74,6 +76,7 @@
 		D34E40A61FDA150900E99CA1 /* KeyboardSynth */ = {
 			isa = PBXGroup;
 			children = (
+				D34F71611FE047EB00D3027A /* Filters.swift */,
 				D382D5B81FDA164C00A5A9B0 /* KeyboardViewController.swift */,
 				D382D5BA1FDA43A700A5A9B0 /* SynthModel.swift */,
 				D34E40A71FDA150900E99CA1 /* AppDelegate.swift */,
@@ -218,6 +221,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D34E40A81FDA150900E99CA1 /* AppDelegate.swift in Sources */,
+				D34F71621FE047EB00D3027A /* Filters.swift in Sources */,
 				D382D5B91FDA164C00A5A9B0 /* KeyboardViewController.swift in Sources */,
 				D382D5BB1FDA43A700A5A9B0 /* SynthModel.swift in Sources */,
 				D34F71401FDB431600D3027A /* SettingsViewController.swift in Sources */,

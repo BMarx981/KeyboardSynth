@@ -15,6 +15,7 @@ class SettingsViewController: UIViewController {
     var sustainValue = 0.5
     var releaseValue = 0.1
     var synth = SynthModel()
+    var filter = Filter()
 
     override func viewDidLoad() {
         super.viewDidLoad()

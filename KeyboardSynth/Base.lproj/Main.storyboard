@@ -123,13 +123,26 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Filter Freq" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RVE-pO-w0y">
+                                <rect key="frame" x="136" y="446" width="103" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="QXv-4V-ZmU">
+                                <rect key="frame" x="80" y="493" width="219" height="31"/>
+                            </slider>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="QXv-4V-ZmU" firstAttribute="centerX" secondItem="qtM-Qh-NTS" secondAttribute="centerX" id="6tw-Yv-kyx"/>
+                            <constraint firstItem="RVE-pO-w0y" firstAttribute="top" secondItem="7BV-n4-Pq3" secondAttribute="bottom" constant="34" id="8B1-EV-VV1"/>
                             <constraint firstItem="TGg-Zs-oSE" firstAttribute="centerY" secondItem="qtM-Qh-NTS" secondAttribute="centerY" id="CB9-0G-TPM"/>
                             <constraint firstItem="OjN-tS-WJA" firstAttribute="centerX" secondItem="qtM-Qh-NTS" secondAttribute="centerX" id="CQA-6S-0bg"/>
                             <constraint firstItem="TGg-Zs-oSE" firstAttribute="centerX" secondItem="qtM-Qh-NTS" secondAttribute="centerX" id="ERp-TV-rdb"/>
                             <constraint firstItem="TGg-Zs-oSE" firstAttribute="top" secondItem="OjN-tS-WJA" secondAttribute="bottom" constant="8" id="GYu-0e-57n"/>
+                            <constraint firstItem="QXv-4V-ZmU" firstAttribute="top" secondItem="RVE-pO-w0y" secondAttribute="bottom" constant="18" id="Wqh-w9-ASh"/>
+                            <constraint firstItem="RVE-pO-w0y" firstAttribute="centerX" secondItem="qtM-Qh-NTS" secondAttribute="centerX" id="hdk-Gw-kac"/>
                             <constraint firstItem="TGg-Zs-oSE" firstAttribute="leading" secondItem="T0H-aX-v9b" secondAttribute="leading" constant="105" id="qwl-n4-Zz7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="T0H-aX-v9b"/>
