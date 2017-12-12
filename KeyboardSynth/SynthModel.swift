@@ -16,22 +16,23 @@ protocol SynthModelDelegate {
 
 class SynthModel {
     
+    var attackValue = 0.0
+    var decayValue = 0.0
+    var sustainValue = 0.0
+    var releaseValue = 0.0
+    var amp = 1.0
+    
     var osc: AKOscillator?
     var mixer: AKMixer?
     var adsr: AKAmplitudeEnvelope?
     
     init() {
         osc = AKOscillator(waveform: AKTable(.sawtooth))
-        osc?.amplitude = 0.8
-        
+        osc?.amplitude = amp
+        osc?.start()
         mixer = AKMixer(osc!)
         mixer?.start()
         adsr = AKAmplitudeEnvelope(mixer!)
-        adsr?.attackDuration = 0.1
-        adsr?.decayDuration = 0.3
-        adsr?.sustainLevel = 1.0
-        adsr?.releaseDuration = 0.1
-        adsr?.start()
         
         AudioKit.output = adsr
         AudioKit.start()
@@ -39,11 +40,16 @@ class SynthModel {
     
     func playKey(noteNum: Double) {
         osc?.frequency = noteNum
-        osc?.start()
+        
+        adsr?.attackDuration = attackValue
+        adsr?.decayDuration = decayValue
+        adsr?.sustainLevel = sustainValue
+        adsr?.releaseDuration = releaseValue
+        print(attackValue)
         adsr?.start()
     }
     
     func stopKey() {
-        osc?.amplitude = 0.0
+        adsr?.stop()
     }
 }

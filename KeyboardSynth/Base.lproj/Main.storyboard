@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -12,7 +13,7 @@
         <!--Keyboard View Controller-->
         <scene sceneID="XV5-go-YVW">
             <objects>
-                <tableViewController id="SLX-Ay-KuB" customClass="KeyboardViewController" customModule="KeyboardSynth" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="KeyboardVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="SLX-Ay-KuB" customClass="KeyboardViewController" customModule="KeyboardSynth" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="yZa-6I-xGK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -37,10 +38,10 @@
             </objects>
             <point key="canvasLocation" x="1860" y="123.68815592203899"/>
         </scene>
-        <!--View Controller-->
+        <!--Settings View Controller-->
         <scene sceneID="uf3-vd-qbA">
             <objects>
-                <viewController id="MWb-6u-MSD" sceneMemberID="viewController">
+                <viewController id="MWb-6u-MSD" customClass="SettingsViewController" customModule="KeyboardSynth" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qtM-Qh-NTS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -91,12 +92,14 @@
                                                 <color key="thumbTintColor" red="0.40483940972222221" green="0.32549370659722221" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <connections>
                                                     <action selector="attackSlider:" destination="RW6-lM-iZP" eventType="valueChanged" id="hBo-ZB-be4"/>
+                                                    <action selector="attackSlider:" destination="MWb-6u-MSD" eventType="valueChanged" id="nHA-QO-8ve"/>
                                                 </connections>
                                             </slider>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.29999999999999999" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="MDm-hU-Pnr">
                                                 <rect key="frame" x="-2" y="42" width="146.5" height="31"/>
                                                 <color key="thumbTintColor" red="0.40483940972222221" green="0.32549370659722221" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <connections>
+                                                    <action selector="decaySlider:" destination="MWb-6u-MSD" eventType="valueChanged" id="VJP-oT-Hcp"/>
                                                     <action selector="decaySlider:" destination="RW6-lM-iZP" eventType="valueChanged" id="ek9-EH-5hc"/>
                                                 </connections>
                                             </slider>
@@ -104,6 +107,7 @@
                                                 <rect key="frame" x="-2" y="84" width="146.5" height="31"/>
                                                 <color key="thumbTintColor" red="0.40483940972222221" green="0.32549370659722221" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <connections>
+                                                    <action selector="sustainSlider:" destination="MWb-6u-MSD" eventType="valueChanged" id="IEi-qd-GT3"/>
                                                     <action selector="sustainSlider:" destination="RW6-lM-iZP" eventType="valueChanged" id="dlN-Bf-FK6"/>
                                                 </connections>
                                             </slider>
@@ -111,6 +115,7 @@
                                                 <rect key="frame" x="-2" y="126" width="146.5" height="31"/>
                                                 <color key="thumbTintColor" red="0.40483940972222221" green="0.32549370659722221" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <connections>
+                                                    <action selector="releaseSlider:" destination="MWb-6u-MSD" eventType="valueChanged" id="3sQ-sG-83M"/>
                                                     <action selector="releaseSlider:" destination="RW6-lM-iZP" eventType="valueChanged" id="thL-IJ-Qnc"/>
                                                 </connections>
                                             </slider>
@@ -133,7 +138,8 @@
                     <navigationItem key="navigationItem" id="ofx-Dm-tMT">
                         <barButtonItem key="rightBarButtonItem" title="Keyboard" id="FIh-h5-yFD">
                             <connections>
-                                <segue destination="SLX-Ay-KuB" kind="show" identifier="KeyboardSegue" id="J2y-G7-tZY"/>
+                                <action selector="enterKeyboard:" destination="RW6-lM-iZP" id="yIg-SX-Od2"/>
+                                <segue destination="SLX-Ay-KuB" kind="show" identifier="KeyboardSegue" id="lLy-AD-FlV"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

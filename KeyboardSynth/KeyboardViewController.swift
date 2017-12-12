@@ -31,30 +31,6 @@ class KeyboardViewController: UITableViewController, SynthModelDelegate {
         case 15: freq = 116.541
         default: freq = 0
         }
-        print(freq)
-        return freq
-    }
-    
-    func getNoteNum(with indexPath: IndexPath) -> Int {
-        var freq = 0
-        switch indexPath.row {
-        case 1: freq = 60
-        case 2: freq = 59
-        case 3: freq = 58
-        case 4: freq = 57
-        case 5: freq = 56
-        case 6: freq = 55
-        case 7: freq = 54
-        case 8: freq = 53
-        case 9: freq = 52
-        case 10: freq = 51
-        case 11: freq = 50
-        case 12: freq = 49
-        case 13: freq = 48
-        case 14: freq = 47
-        case 15: freq = 46
-        default: freq = 0
-        }
         return freq
     }
     
@@ -132,12 +108,10 @@ class KeyboardViewController: UITableViewController, SynthModelDelegate {
     }
  
     override func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
-        print("Good stuff")
         didHitKey(synthModel, at: indexPath)
     }
     
     override func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
-        print("Bad stuff")
         didStopKey(synthModel)
     }
     /*
@@ -183,6 +157,30 @@ class KeyboardViewController: UITableViewController, SynthModelDelegate {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
+     
+     func getNoteNum(with indexPath: IndexPath) -> Int {
+     var freq = 0
+     switch indexPath.row {
+     case 1: freq = 60
+     case 2: freq = 59
+     case 3: freq = 58
+     case 4: freq = 57
+     case 5: freq = 56
+     case 6: freq = 55
+     case 7: freq = 54
+     case 8: freq = 53
+     case 9: freq = 52
+     case 10: freq = 51
+     case 11: freq = 50
+     case 12: freq = 49
+     case 13: freq = 48
+     case 14: freq = 47
+     case 15: freq = 46
+     default: freq = 0
+     }
+     return freq
+     }
+     
     */
 
 }
