@@ -27,6 +27,10 @@ class SynthModel {
     
     init() {
         osc = AKOscillatorBank(waveform: AKTable(.sawtooth))
+        osc?.attackDuration = attackValue
+        osc?.decayDuration = decayValue
+        osc?.sustainLevel = sustainValue
+        osc?.releaseDuration = releaseValue
         mixer = AKMixer(osc!)
         mixer?.start()
         

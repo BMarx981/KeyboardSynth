@@ -38,7 +38,7 @@
             </objects>
             <point key="canvasLocation" x="1860" y="123.68815592203899"/>
         </scene>
-        <!--Settings View Controller-->
+        <!--KeyboardSynth-->
         <scene sceneID="uf3-vd-qbA">
             <objects>
                 <viewController id="MWb-6u-MSD" customClass="SettingsViewController" customModule="KeyboardSynth" customModuleProvider="target" sceneMemberID="viewController">
@@ -46,12 +46,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="KeyboardSynth" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="izh-Xm-o76">
-                                <rect key="frame" x="8" y="72" width="359" height="29"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="TGg-Zs-oSE">
                                 <rect key="frame" x="105" y="256" width="165" height="156"/>
                                 <subviews>
@@ -123,19 +117,24 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amplitude Env" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OjN-tS-WJA">
+                                <rect key="frame" x="106.5" y="216.5" width="162" height="31.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="TGg-Zs-oSE" firstAttribute="centerY" secondItem="qtM-Qh-NTS" secondAttribute="centerY" id="CB9-0G-TPM"/>
+                            <constraint firstItem="OjN-tS-WJA" firstAttribute="centerX" secondItem="qtM-Qh-NTS" secondAttribute="centerX" id="CQA-6S-0bg"/>
                             <constraint firstItem="TGg-Zs-oSE" firstAttribute="centerX" secondItem="qtM-Qh-NTS" secondAttribute="centerX" id="ERp-TV-rdb"/>
-                            <constraint firstItem="izh-Xm-o76" firstAttribute="leading" secondItem="T0H-aX-v9b" secondAttribute="leading" constant="8" id="JbU-kl-0Yc"/>
-                            <constraint firstItem="izh-Xm-o76" firstAttribute="top" secondItem="T0H-aX-v9b" secondAttribute="top" constant="8" id="nWQ-5C-KD0"/>
+                            <constraint firstItem="TGg-Zs-oSE" firstAttribute="top" secondItem="OjN-tS-WJA" secondAttribute="bottom" constant="8" id="GYu-0e-57n"/>
                             <constraint firstItem="TGg-Zs-oSE" firstAttribute="leading" secondItem="T0H-aX-v9b" secondAttribute="leading" constant="105" id="qwl-n4-Zz7"/>
-                            <constraint firstItem="T0H-aX-v9b" firstAttribute="trailing" secondItem="izh-Xm-o76" secondAttribute="trailing" constant="8" id="uDZ-dh-s31"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="T0H-aX-v9b"/>
                     </view>
-                    <navigationItem key="navigationItem" id="ofx-Dm-tMT">
+                    <navigationItem key="navigationItem" title="KeyboardSynth" id="ofx-Dm-tMT">
                         <barButtonItem key="rightBarButtonItem" title="Keyboard" id="FIh-h5-yFD">
                             <connections>
                                 <action selector="enterKeyboard:" destination="RW6-lM-iZP" id="yIg-SX-Od2"/>
