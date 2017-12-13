@@ -39,6 +39,12 @@ class SettingsViewController: UIViewController {
         releaseValue = Double(sender.value)
     }
     
+    @IBAction func FilterFreqSLider(_ sender: UISlider) {
+        let frequency = pow(10, Double(sender.value))
+        filter.setFilterFreq(freq: frequency)
+        print(frequency)
+        
+    }
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation

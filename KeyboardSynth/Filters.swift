@@ -14,6 +14,7 @@ class Filter {
     var lpf: AKLowPassFilter?
     var bpf: AKBandPassButterworthFilter?
     var hpf: AKHighPassFilter?
+    var frequency = 0.0
     var selectedFilter: Int?
     var filterArray = [Any?]()
     
@@ -25,7 +26,26 @@ class Filter {
     
     func setFilterFreq(freq: Double) {
         if let num = selectedFilter {
-            let filter = filterArray[num]
+            let filter = filterArray[num] as? AKLowPassFilter
+            filter?.setFrequency(with: freq)
         }
+    }
+}
+
+extension AKLowPassFilter {
+    func setFrequency(with frequency: Double) {
+        cutoffFrequency = frequency
+    }
+}
+
+extension AKBandPassButterworthFilter {
+    func setFrequency(with frequency: Double) {
+        centerFrequency = frequency
+    }
+}
+
+extension AKHighPassFilter {
+    func setFrequency(with frequency: Double) {
+        cutoffFrequency = frequency
     }
 }

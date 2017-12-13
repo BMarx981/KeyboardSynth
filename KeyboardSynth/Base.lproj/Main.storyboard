@@ -83,7 +83,7 @@
                                         <subviews>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.10000000000000001" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Hgj-Ji-CDX">
                                                 <rect key="frame" x="-2" y="0.0" width="146.5" height="31"/>
-                                                <color key="thumbTintColor" red="0.40483940972222221" green="0.32549370659722221" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="thumbTintColor" red="0.40392156862745099" green="0.32549019607843138" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <connections>
                                                     <action selector="attackSlider:" destination="RW6-lM-iZP" eventType="valueChanged" id="hBo-ZB-be4"/>
                                                     <action selector="attackSlider:" destination="MWb-6u-MSD" eventType="valueChanged" id="nHA-QO-8ve"/>
@@ -118,36 +118,49 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amplitude Env" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OjN-tS-WJA">
-                                <rect key="frame" x="106.5" y="216.5" width="162" height="31.5"/>
+                                <rect key="frame" x="107" y="216.5" width="162" height="31.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Filter Freq" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RVE-pO-w0y">
-                                <rect key="frame" x="136" y="446" width="103" height="29"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Filter Freq" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RVE-pO-w0y">
+                                <rect key="frame" x="82" y="446" width="211" height="29"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <slider opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="QXv-4V-ZmU">
-                                <rect key="frame" x="80" y="493" width="219" height="31"/>
+                            <slider opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="2.25" minValue="0.20000000000000001" maxValue="4.2800000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="QXv-4V-ZmU">
+                                <rect key="frame" x="80" y="493" width="215" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="215" id="V0U-oC-4Hd"/>
+                                    <constraint firstAttribute="height" constant="30" id="jaY-TO-I18"/>
+                                </constraints>
+                                <color key="thumbTintColor" red="0.40392156862745099" green="0.32549019607843138" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="FilterFreqSLider:" destination="MWb-6u-MSD" eventType="valueChanged" id="hqD-nP-mML"/>
+                                </connections>
                             </slider>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="QXv-4V-ZmU" firstAttribute="centerX" secondItem="qtM-Qh-NTS" secondAttribute="centerX" id="6tw-Yv-kyx"/>
-                            <constraint firstItem="RVE-pO-w0y" firstAttribute="top" secondItem="7BV-n4-Pq3" secondAttribute="bottom" constant="34" id="8B1-EV-VV1"/>
+                            <constraint firstItem="RVE-pO-w0y" firstAttribute="top" secondItem="TGg-Zs-oSE" secondAttribute="bottom" constant="34" id="7lx-2j-wWc"/>
                             <constraint firstItem="TGg-Zs-oSE" firstAttribute="centerY" secondItem="qtM-Qh-NTS" secondAttribute="centerY" id="CB9-0G-TPM"/>
                             <constraint firstItem="OjN-tS-WJA" firstAttribute="centerX" secondItem="qtM-Qh-NTS" secondAttribute="centerX" id="CQA-6S-0bg"/>
                             <constraint firstItem="TGg-Zs-oSE" firstAttribute="centerX" secondItem="qtM-Qh-NTS" secondAttribute="centerX" id="ERp-TV-rdb"/>
                             <constraint firstItem="TGg-Zs-oSE" firstAttribute="top" secondItem="OjN-tS-WJA" secondAttribute="bottom" constant="8" id="GYu-0e-57n"/>
+                            <constraint firstItem="QXv-4V-ZmU" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="qtM-Qh-NTS" secondAttribute="leading" constant="82" id="IPA-vw-4SI"/>
+                            <constraint firstItem="QXv-4V-ZmU" firstAttribute="leading" secondItem="RVE-pO-w0y" secondAttribute="leading" id="NOe-BA-RiG"/>
                             <constraint firstItem="QXv-4V-ZmU" firstAttribute="top" secondItem="RVE-pO-w0y" secondAttribute="bottom" constant="18" id="Wqh-w9-ASh"/>
+                            <constraint firstItem="T0H-aX-v9b" firstAttribute="bottom" secondItem="QXv-4V-ZmU" secondAttribute="bottom" constant="144" id="cPR-Ib-jvQ"/>
                             <constraint firstItem="RVE-pO-w0y" firstAttribute="centerX" secondItem="qtM-Qh-NTS" secondAttribute="centerX" id="hdk-Gw-kac"/>
+                            <constraint firstItem="RVE-pO-w0y" firstAttribute="leading" secondItem="TGg-Zs-oSE" secondAttribute="trailing" constant="-188" id="jcA-lz-TYU"/>
                             <constraint firstItem="TGg-Zs-oSE" firstAttribute="leading" secondItem="T0H-aX-v9b" secondAttribute="leading" constant="105" id="qwl-n4-Zz7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="T0H-aX-v9b"/>
                     </view>
                     <navigationItem key="navigationItem" title="KeyboardSynth" id="ofx-Dm-tMT">
+                        <barButtonItem key="backBarButtonItem" title="KeySynth" id="g9y-9o-ZY9"/>
                         <barButtonItem key="rightBarButtonItem" title="Keyboard" id="FIh-h5-yFD">
                             <connections>
                                 <action selector="enterKeyboard:" destination="RW6-lM-iZP" id="yIg-SX-Od2"/>
