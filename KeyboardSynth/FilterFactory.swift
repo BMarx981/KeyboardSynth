@@ -21,13 +21,13 @@ struct FilterType {
     }
 }
 
-protocol filterFrequencys {
+protocol FilterFrequencys {
     func setFilterFrequency(with freq: Double)
     func setResonanceFrequency(with freq: Double)
     func bypassFilter()
 }
 
-class LowPassFilter: AKLowPassFilter, filterFrequencys {
+class LowPassFilter: AKLowPassFilter, FilterFrequencys {
     var frequency: Double
     var res: Double
     
@@ -54,7 +54,7 @@ class LowPassFilter: AKLowPassFilter, filterFrequencys {
     }
 }
 
-class BandPassFilter: AKBandPassButterworthFilter, filterFrequencys {
+class BandPassFilter: AKBandPassButterworthFilter, FilterFrequencys {
     
     var frequency: Double
     var res: Double
@@ -82,7 +82,7 @@ class BandPassFilter: AKBandPassButterworthFilter, filterFrequencys {
     }
 }
 
-class HighPassFilter: AKHighPassFilter, filterFrequencys {
+class HighPassFilter: AKHighPassFilter, FilterFrequencys {
     
     var frequency: Double
     var res: Double
@@ -107,5 +107,18 @@ class HighPassFilter: AKHighPassFilter, filterFrequencys {
     
     func bypassFilter() {
         bypass()
+    }
+}
+
+struct FilterFactory {
+    static func getFilter(freq: Double, res: Double) -> FilterFrequencys {
+        switch FilterType.filter.self {
+        case .lpf:
+            return LowPassFilter as! FilterFrequencys
+        case .bpf:
+            return BandPassFilter
+        case .hpf:
+            return HighPassFilter
+        }
     }
 }
