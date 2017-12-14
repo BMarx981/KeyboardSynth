@@ -59,6 +59,7 @@ class SettingsViewController: UIViewController {
             synth.sustainValue = sustainValue
             synth.releaseValue = releaseValue
             synth.filterFrequency = frequency
+            synth.res = resonance
             dest?.synthModel = synth
         }
 
