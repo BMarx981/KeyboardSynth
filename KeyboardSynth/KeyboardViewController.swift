@@ -11,6 +11,9 @@ import AudioKit
 
 class KeyboardViewController: UITableViewController, SynthModelDelegate {
     
+    let notes = ["C", "B", "Bb", "A", "Ab", "G", "Gb", "F", "E", "Eb", "D", "Db", "C", "B", "Bb", "A"]
+    var synthModel = SynthModel()
+    
     func getNoteNum(with indexPath: IndexPath) -> Int {
         var freq = 0
         switch indexPath.row {
@@ -34,7 +37,6 @@ class KeyboardViewController: UITableViewController, SynthModelDelegate {
         }
         return freq
     }
-    var synthModel = SynthModel()
 
     func didHitKey(_ synthModel: SynthModel, at index: IndexPath) {
         synthModel.playKey(noteNum: Double(getNoteNum(with: index)))
@@ -47,6 +49,7 @@ class KeyboardViewController: UITableViewController, SynthModelDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        tableView.allowsMultipleSelection = true
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -75,6 +78,8 @@ class KeyboardViewController: UITableViewController, SynthModelDelegate {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "key", for: indexPath)
         cell.backgroundColor = getKeyColor(for: indexPath.row)
+        cell.textLabel?.text = notes[indexPath.row]
+        cell.textLabel?.textColor = UIColor(red: 103/255, green: 83/255, blue: 1, alpha: 1)
 
         return cell
     }
@@ -109,6 +114,7 @@ class KeyboardViewController: UITableViewController, SynthModelDelegate {
  
     override func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
         didHitKey(synthModel, at: indexPath)
+        
     }
     
     override func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {

@@ -14,8 +14,9 @@ class SettingsViewController: UIViewController {
     var decayValue = 0.2
     var sustainValue = 0.5
     var releaseValue = 0.1
+    var frequency = 1000.0
+    var resonance = 1000.0
     var synth = SynthModel()
-    var filter = Filter()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,11 +41,13 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func FilterFreqSLider(_ sender: UISlider) {
-        let frequency = pow(10, Double(sender.value))
-        filter.setFilterFreq(freq: frequency)
-        print(frequency)
-        
+        frequency = pow(10, Double(sender.value))
     }
+    
+    @IBAction func ResonanceSlider(_ sender: UISlider) {
+        resonance = pow(10, Double(sender.value))
+    }
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -55,6 +58,7 @@ class SettingsViewController: UIViewController {
             synth.decayValue = decayValue
             synth.sustainValue = sustainValue
             synth.releaseValue = releaseValue
+            synth.filterFrequency = frequency
             dest?.synthModel = synth
         }
 
