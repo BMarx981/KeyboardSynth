@@ -48,6 +48,9 @@ class SettingsViewController: UIViewController {
         resonance = pow(10, Double(sender.value))
     }
     
+    @IBAction func filterSelector(_ sender: UISegmentedControl) {
+        
+    }
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation

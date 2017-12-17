@@ -66,3 +66,9 @@ extension AKHighPassFilter {
         cutoffFrequency = frequency
     }
 }
+
+extension Filter {
+    func setFilterFreq(to freq: Double) {
+        frequency = freq
+    }
+}

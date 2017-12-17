@@ -162,12 +162,26 @@
                                     </slider>
                                 </subviews>
                             </stackView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Plg-bX-qv8">
+                                <rect key="frame" x="43" y="72" width="235" height="29"/>
+                                <segments>
+                                    <segment title="LPF"/>
+                                    <segment title="BPF"/>
+                                    <segment title="HPF"/>
+                                    <segment title="Bypass"/>
+                                </segments>
+                                <connections>
+                                    <action selector="filterSelector:" destination="MWb-6u-MSD" eventType="valueChanged" id="wgA-ka-Bce"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="NVA-no-nAD" firstAttribute="leading" secondItem="WQY-BD-GK1" secondAttribute="leading" id="4xY-to-xtd"/>
                             <constraint firstItem="WQY-BD-GK1" firstAttribute="centerY" secondItem="qtM-Qh-NTS" secondAttribute="centerY" id="9Z5-oX-NPX"/>
                             <constraint firstItem="NVA-no-nAD" firstAttribute="centerX" secondItem="qtM-Qh-NTS" secondAttribute="centerX" id="C2n-1w-7F3"/>
+                            <constraint firstItem="Plg-bX-qv8" firstAttribute="top" secondItem="T0H-aX-v9b" secondAttribute="top" constant="8" id="ElR-F1-XRC"/>
+                            <constraint firstItem="Plg-bX-qv8" firstAttribute="centerX" secondItem="qtM-Qh-NTS" secondAttribute="centerX" id="aXy-SF-vMW"/>
                             <constraint firstItem="NVA-no-nAD" firstAttribute="trailing" secondItem="WQY-BD-GK1" secondAttribute="trailing" id="cbz-AX-BB2"/>
                             <constraint firstItem="WQY-BD-GK1" firstAttribute="centerX" secondItem="qtM-Qh-NTS" secondAttribute="centerX" id="civ-5w-dYA"/>
                             <constraint firstItem="NVA-no-nAD" firstAttribute="top" secondItem="WQY-BD-GK1" secondAttribute="top" constant="181" id="oUh-N5-OC7"/>
@@ -187,7 +201,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NcN-la-iPY" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="RW6-lM-iZP" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1096.8" y="123.68815592203899"/>
+            <point key="canvasLocation" x="1095" y="123.59154929577466"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cac-AM-1dk">
