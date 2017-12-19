@@ -50,6 +50,7 @@ class KeyboardViewController: UITableViewController, SynthModelDelegate {
         super.viewDidLoad()
 
         tableView.allowsMultipleSelection = true
+
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 

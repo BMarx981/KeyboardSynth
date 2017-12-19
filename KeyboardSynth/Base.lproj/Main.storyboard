@@ -163,7 +163,7 @@
                                 </subviews>
                             </stackView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Plg-bX-qv8">
-                                <rect key="frame" x="43" y="72" width="235" height="29"/>
+                                <rect key="frame" x="42.5" y="120" width="235" height="29"/>
                                 <segments>
                                     <segment title="LPF"/>
                                     <segment title="BPF"/>
@@ -174,14 +174,25 @@
                                     <action selector="filterSelector:" destination="MWb-6u-MSD" eventType="valueChanged" id="wgA-ka-Bce"/>
                                 </connections>
                             </segmentedControl>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="qZ9-we-6RC">
+                                <rect key="frame" x="32.5" y="72" width="255" height="29"/>
+                                <segments>
+                                    <segment title="Saw"/>
+                                    <segment title="Square"/>
+                                    <segment title="Sine"/>
+                                    <segment title="Triangle"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="NVA-no-nAD" firstAttribute="leading" secondItem="WQY-BD-GK1" secondAttribute="leading" id="4xY-to-xtd"/>
                             <constraint firstItem="WQY-BD-GK1" firstAttribute="centerY" secondItem="qtM-Qh-NTS" secondAttribute="centerY" id="9Z5-oX-NPX"/>
+                            <constraint firstItem="Plg-bX-qv8" firstAttribute="top" secondItem="qZ9-we-6RC" secondAttribute="bottom" constant="20" id="BsE-O2-Mg7"/>
                             <constraint firstItem="NVA-no-nAD" firstAttribute="centerX" secondItem="qtM-Qh-NTS" secondAttribute="centerX" id="C2n-1w-7F3"/>
-                            <constraint firstItem="Plg-bX-qv8" firstAttribute="top" secondItem="T0H-aX-v9b" secondAttribute="top" constant="8" id="ElR-F1-XRC"/>
-                            <constraint firstItem="Plg-bX-qv8" firstAttribute="centerX" secondItem="qtM-Qh-NTS" secondAttribute="centerX" id="aXy-SF-vMW"/>
+                            <constraint firstItem="Plg-bX-qv8" firstAttribute="centerX" secondItem="qtM-Qh-NTS" secondAttribute="centerX" id="G80-Zt-j54"/>
+                            <constraint firstItem="qZ9-we-6RC" firstAttribute="top" secondItem="T0H-aX-v9b" secondAttribute="top" constant="8" id="GyP-eB-R9R"/>
+                            <constraint firstItem="qZ9-we-6RC" firstAttribute="centerX" secondItem="qtM-Qh-NTS" secondAttribute="centerX" id="QOQ-c2-55A"/>
                             <constraint firstItem="NVA-no-nAD" firstAttribute="trailing" secondItem="WQY-BD-GK1" secondAttribute="trailing" id="cbz-AX-BB2"/>
                             <constraint firstItem="WQY-BD-GK1" firstAttribute="centerX" secondItem="qtM-Qh-NTS" secondAttribute="centerX" id="civ-5w-dYA"/>
                             <constraint firstItem="NVA-no-nAD" firstAttribute="top" secondItem="WQY-BD-GK1" secondAttribute="top" constant="181" id="oUh-N5-OC7"/>

@@ -20,10 +20,12 @@ class SynthModel {
     var decayValue = 0.0
     var sustainValue = 0.0
     var releaseValue = 0.0
-    var filterFrequency = 0.0
+    var filterFrequency = 1000.0
     var res = 0.0
     var amp = 127
-    var filter = Filter()
+    var typeSelection = 0
+    var filterNode: AKNode?
+    var filter: Filter?
     
     var osc: AKOscillatorBank?
     var mixer: AKMixer?
@@ -34,8 +36,8 @@ class SynthModel {
         osc?.decayDuration = decayValue
         osc?.sustainLevel = sustainValue
         osc?.releaseDuration = releaseValue
-        filter = Filter(osc: osc!, filterType: 0, freq: filterFrequency, res: res)
-        mixer = AKMixer(osc!)
+        filterNode = filter?.getLPF(osc!, at: filterFrequency, resonance: res)
+        mixer = AKMixer(filterNode)
         mixer?.start()
         
         AudioKit.output = mixer

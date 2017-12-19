@@ -9,7 +9,7 @@
 import Foundation
 import AudioKit
 
-class Filter {
+class Filter: AKNode {
     
     var lpf: AKLowPassFilter?
     var bpf: AKBandPassButterworthFilter?
@@ -19,32 +19,41 @@ class Filter {
     var resonance = 0.0
     var selectedFilter: Int?
     
-    init() {
+    override init() {
+        super.init()
     }
     
     init(osc: AKOscillatorBank, filterType: Int, freq: Double, res: Double) {
-        selectedFilter = filterType
-        switch filterType {
+        super.init()
+
+        setFilter(for: osc, with: filterType)
+        self.frequency = freq
+        self.resonance = res
+    }
+    
+    func setFilter(for osc: AKOscillatorBank, with selection: Int) {
+        selectedFilter = selection
+        switch selection {
         case 0:
-            filter = setLPF(osc, at: freq, resonance: res)
+            filter = getLPF(osc, at: frequency, resonance: resonance)
         case 1:
-            filter = setBPF(osc, at: freq, resonance: res)
+            filter = getBPF(osc, at: frequency, resonance: resonance)
         case 2:
-            filter = setHPF(osc, at: freq, resonance: res)
+            filter = getHPF(osc, at: frequency, resonance: resonance)
         default:
-            filter = setLPF(osc, at: freq, resonance: res)
+            filter = getLPF(osc, at: frequency, resonance: resonance)
         }
     }
     
-    func setLPF(_ osc: AKOscillatorBank, at freq: Double, resonance: Double) -> AKLowPassFilter {
+    func getLPF(_ osc: AKOscillatorBank, at freq: Double, resonance: Double) -> AKLowPassFilter {
         return AKLowPassFilter(osc, cutoffFrequency: freq, resonance: resonance)
     }
     
-    func setHPF(_ osc: AKOscillatorBank, at freq: Double, resonance: Double) -> AKHighPassFilter {
+    func getHPF(_ osc: AKOscillatorBank, at freq: Double, resonance: Double) -> AKHighPassFilter {
         return AKHighPassFilter(osc, cutoffFrequency: freq, resonance: resonance)
     }
     
-    func setBPF(_ osc: AKOscillatorBank, at freq: Double, resonance: Double) -> AKBandPassButterworthFilter {
+    func getBPF(_ osc: AKOscillatorBank, at freq: Double, resonance: Double) -> AKBandPassButterworthFilter {
         return AKBandPassButterworthFilter(osc, centerFrequency: freq, bandwidth: resonance)
     }
 }
@@ -72,3 +81,4 @@ extension Filter {
         frequency = freq
     }
 }
+
