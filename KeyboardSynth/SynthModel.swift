@@ -20,13 +20,11 @@ class SynthModel {
     var decayValue = 0.0
     var sustainValue = 0.0
     var releaseValue = 0.0
-    var filterFrequency = 1000.0
+    var filterFrequency = 2000.0
     var res = 0.0
     var amp = 127
     var typeSelection = 0
     var filterNode: AKNode?
-    var filter: Filter?
-    
     var osc: AKOscillatorBank?
     var mixer: AKMixer?
     
@@ -36,7 +34,8 @@ class SynthModel {
         osc?.decayDuration = decayValue
         osc?.sustainLevel = sustainValue
         osc?.releaseDuration = releaseValue
-        filterNode = filter?.getLPF(osc!, at: filterFrequency, resonance: res)
+        let filter = Filter()
+        filterNode = filter.setFilter(for: osc!, with: typeSelection, at: filterFrequency, with: res)
         mixer = AKMixer(filterNode)
         mixer?.start()
         
@@ -50,7 +49,6 @@ class SynthModel {
         osc?.sustainLevel = sustainValue
         osc?.releaseDuration = releaseValue
         osc?.play(noteNumber: MIDINoteNumber(noteNum), velocity: MIDIVelocity(amp))
-
     }
     
     func stopKey(_ noteNum: Int) {

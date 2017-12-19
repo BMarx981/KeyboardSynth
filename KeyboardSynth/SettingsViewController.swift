@@ -14,10 +14,9 @@ class SettingsViewController: UIViewController {
     var decayValue = 0.2
     var sustainValue = 0.5
     var releaseValue = 0.1
-    var frequency = 1000.0
+    var frequency = 6000.0
     var resonance = 1000.0
     var filterSelection = 0
-    var synth = SynthModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,14 +58,13 @@ class SettingsViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "KeyboardSegue" {
             let dest = segue.destination as? KeyboardViewController
-            synth.attackValue = attackValue
-            synth.decayValue = decayValue
-            synth.sustainValue = sustainValue
-            synth.releaseValue = releaseValue
-            synth.filterFrequency = frequency
-            synth.res = resonance
-            synth.typeSelection = filterSelection
-            dest?.synthModel = synth
+            dest?.synthModel.attackValue = attackValue
+            dest?.synthModel.decayValue = decayValue
+            dest?.synthModel.sustainValue = sustainValue
+            dest?.synthModel.releaseValue = releaseValue
+            dest?.synthModel.filterFrequency = frequency
+            dest?.synthModel.res = resonance
+            dest?.synthModel.typeSelection = filterSelection
         }
     }
 }
