@@ -17,7 +17,8 @@ class SettingsViewController: UIViewController {
     var frequency = 6000.0
     var resonance = 1000.0
     var filterSelection = 0
-
+    var synth = SynthModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -51,7 +52,7 @@ class SettingsViewController: UIViewController {
     @IBAction func filterSelector(_ sender: UISegmentedControl) {
         filterSelection = sender.selectedSegmentIndex
     }
-    
+
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -63,7 +64,7 @@ class SettingsViewController: UIViewController {
             dest?.synthModel.sustainValue = sustainValue
             dest?.synthModel.releaseValue = releaseValue
             dest?.synthModel.filterFrequency = frequency
-            dest?.synthModel.res = resonance
+            dest?.synthModel.resFreq = resonance
             dest?.synthModel.typeSelection = filterSelection
         }
     }

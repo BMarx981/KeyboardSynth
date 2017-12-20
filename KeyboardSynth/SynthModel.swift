@@ -21,12 +21,15 @@ class SynthModel {
     var sustainValue = 0.0
     var releaseValue = 0.0
     var filterFrequency = 2000.0
-    var res = 0.0
+    var resFreq = -20.0
     var amp = 127
     var typeSelection = 0
-    var filterNode: AKNode?
+    var filter = Filter()
     var osc: AKOscillatorBank?
-    var mixer: AKMixer?
+    var filterMixer = AKMixer()
+    var lpf = AKLowPassFilter()
+    var bpf = AKBandPassButterworthFilter()
+    var hpf = AKHighPassFilter()
     
     init() {
         osc = AKOscillatorBank(waveform: AKTable(.sawtooth))
@@ -34,16 +37,35 @@ class SynthModel {
         osc?.decayDuration = decayValue
         osc?.sustainLevel = sustainValue
         osc?.releaseDuration = releaseValue
-        let filter = Filter()
-        filterNode = filter.setFilter(for: osc!, with: typeSelection, at: filterFrequency, with: res)
-        mixer = AKMixer(filterNode)
-        mixer?.start()
         
-        AudioKit.output = mixer
+        switch typeSelection {
+        case 0:
+            print(typeSelection)
+            lpf = filter.getLPF(osc!, at: filterFrequency, resonance: resFreq)
+            filterMixer.connect(input: lpf)
+        case 1:
+            bpf = filter.getBPF(osc!, at: filterFrequency, resonance: resFreq)
+            filterMixer.connect(input: bpf)
+        case 2:
+            hpf = filter.getHPF(osc!, at: filterFrequency, resonance: resFreq)
+            filterMixer.connect(input: hpf)
+        default:
+            lpf = filter.getLPF(osc!, at: filterFrequency, resonance: resFreq)
+            filterMixer.connect(input: lpf)
+            lpf.bypass()
+        }
+
+        AudioKit.output = filterMixer
         AudioKit.start()
     }
     
     func playKey(noteNum: Double) {
+        lpf.setFrequency(to: filterFrequency)
+        bpf.setFrequency(to: filterFrequency)
+        hpf.setFrequency(to: filterFrequency)
+        lpf.setResonance(to: resFreq)
+        bpf.setResonance(to: resFreq)
+        hpf.setResonance(to: resFreq)
         osc?.attackDuration = attackValue
         osc?.decayDuration = decayValue
         osc?.sustainLevel = sustainValue

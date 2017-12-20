@@ -98,7 +98,7 @@
                                             </label>
                                             <slider opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" placeholderIntrinsicWidth="200" placeholderIntrinsicHeight="30" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="10" minValue="-20" maxValue="20" translatesAutoresizingMaskIntoConstraints="NO" id="2pw-v8-Nh9">
                                                 <rect key="frame" x="19" y="0.0" width="206" height="31"/>
-                                                <color key="thumbTintColor" red="0.40483940972222221" green="0.32549370659722221" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="thumbTintColor" red="0.40392156862745099" green="0.32549019607843138" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <connections>
                                                     <action selector="sustainSlider:" destination="MWb-6u-MSD" eventType="valueChanged" id="IEi-qd-GT3"/>
                                                     <action selector="sustainSlider:" destination="RW6-lM-iZP" eventType="valueChanged" id="dlN-Bf-FK6"/>
@@ -140,7 +140,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <slider opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="2.25" minValue="0.20000000000000001" maxValue="4.2800000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="QXv-4V-ZmU">
+                                    <slider opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="2.8999999999999999" minValue="1.6000000000000001" maxValue="4.2000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="QXv-4V-ZmU">
                                         <rect key="frame" x="-2" y="39" width="227" height="31"/>
                                         <color key="thumbTintColor" red="0.40392156862745099" green="0.32549019607843138" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
@@ -153,7 +153,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <slider opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="2.25" minValue="0.20000000000000001" maxValue="4.1500000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="sdy-cT-cHn">
+                                    <slider opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="-20" minValue="-20" maxValue="20" translatesAutoresizingMaskIntoConstraints="NO" id="sdy-cT-cHn">
                                         <rect key="frame" x="-2" y="117" width="227" height="31"/>
                                         <color key="thumbTintColor" red="0.4039215686" green="0.32549019610000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
@@ -170,6 +170,7 @@
                                     <segment title="HPF"/>
                                     <segment title="Bypass"/>
                                 </segments>
+                                <color key="tintColor" red="0.40392156862745099" green="0.32549019607843138" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="filterSelector:" destination="MWb-6u-MSD" eventType="valueChanged" id="wgA-ka-Bce"/>
                                 </connections>
@@ -182,6 +183,7 @@
                                     <segment title="Sine"/>
                                     <segment title="Triangle"/>
                                 </segments>
+                                <color key="tintColor" red="0.40392156862745099" green="0.32549019607843138" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -192,16 +194,17 @@
                             <constraint firstItem="NVA-no-nAD" firstAttribute="centerX" secondItem="qtM-Qh-NTS" secondAttribute="centerX" id="C2n-1w-7F3"/>
                             <constraint firstItem="Plg-bX-qv8" firstAttribute="centerX" secondItem="qtM-Qh-NTS" secondAttribute="centerX" id="G80-Zt-j54"/>
                             <constraint firstItem="qZ9-we-6RC" firstAttribute="top" secondItem="T0H-aX-v9b" secondAttribute="top" constant="8" id="GyP-eB-R9R"/>
-                            <constraint firstItem="qZ9-we-6RC" firstAttribute="centerX" secondItem="qtM-Qh-NTS" secondAttribute="centerX" id="QOQ-c2-55A"/>
                             <constraint firstItem="NVA-no-nAD" firstAttribute="trailing" secondItem="WQY-BD-GK1" secondAttribute="trailing" id="cbz-AX-BB2"/>
                             <constraint firstItem="WQY-BD-GK1" firstAttribute="centerX" secondItem="qtM-Qh-NTS" secondAttribute="centerX" id="civ-5w-dYA"/>
                             <constraint firstItem="NVA-no-nAD" firstAttribute="top" secondItem="WQY-BD-GK1" secondAttribute="top" constant="181" id="oUh-N5-OC7"/>
+                            <constraint firstItem="qZ9-we-6RC" firstAttribute="centerX" secondItem="qtM-Qh-NTS" secondAttribute="centerX" id="zvl-xa-dP5"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="T0H-aX-v9b"/>
                     </view>
                     <navigationItem key="navigationItem" title="KeyboardSynth" id="ofx-Dm-tMT">
                         <barButtonItem key="backBarButtonItem" title="KeySynth" id="g9y-9o-ZY9"/>
                         <barButtonItem key="rightBarButtonItem" title="Keyboard" id="FIh-h5-yFD">
+                            <color key="tintColor" red="0.40392156862745099" green="0.32549019607843138" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="enterKeyboard:" destination="RW6-lM-iZP" id="yIg-SX-Od2"/>
                                 <segue destination="SLX-Ay-KuB" kind="show" identifier="KeyboardSegue" id="lLy-AD-FlV"/>
