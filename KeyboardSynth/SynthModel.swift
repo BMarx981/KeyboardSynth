@@ -25,6 +25,7 @@ class SynthModel {
     var amp = 127
     var typeSelection = 0
     var filter = Filter()
+    var oscSelection = 0
     var osc: AKOscillatorBank?
     var filterMixer = AKMixer()
     var lpf = AKLowPassFilter()
@@ -33,6 +34,7 @@ class SynthModel {
     
     init() {
         osc = AKOscillatorBank(waveform: AKTable(.sawtooth))
+        osc? = getOscType(with: oscSelection)
         osc?.attackDuration = attackValue
         osc?.decayDuration = decayValue
         osc?.sustainLevel = sustainValue
@@ -40,7 +42,6 @@ class SynthModel {
         
         switch typeSelection {
         case 0:
-            print(typeSelection)
             lpf = filter.getLPF(osc!, at: filterFrequency, resonance: resFreq)
             filterMixer.connect(input: lpf)
         case 1:
@@ -57,6 +58,23 @@ class SynthModel {
 
         AudioKit.output = filterMixer
         AudioKit.start()
+    }
+    
+    func getOscType(with selection: Int) -> AKOscillatorBank {
+        var osc = AKOscillatorBank(waveform: AKTable(.sawtooth))
+        switch selection {
+        case 0:
+            osc = AKOscillatorBank(waveform: AKTable(.sawtooth))
+        case 1:
+            osc = AKOscillatorBank(waveform: AKTable(.square))
+        case 2:
+            osc = AKOscillatorBank(waveform: AKTable(.sine))
+        case 3:
+            osc = AKOscillatorBank(waveform: AKTable(.triangle))
+        default:
+            osc = AKOscillatorBank(waveform: AKTable(.sawtooth))
+        }
+        return osc
     }
     
     func playKey(noteNum: Double) {

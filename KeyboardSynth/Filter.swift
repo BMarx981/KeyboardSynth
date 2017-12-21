@@ -14,10 +14,24 @@ class Filter {
     var lpf: AKLowPassFilter?
     var bpf: AKBandPassButterworthFilter?
     var hpf: AKHighPassFilter?
-    var frequency = 0.0
-    var resonance = -20.0
+    var frequency: Double {
+        willSet {
+            lpf?.cutoffFrequency = (newValue)
+            bpf?.centerFrequency = (newValue)
+            hpf?.cutoffFrequency = (newValue)
+        }
+    }
+    var resonance: Double {
+        willSet {
+            lpf?.resonance = (newValue)
+            bpf?.bandwidth = (newValue)
+            hpf?.resonance = (newValue)
+        }
+    }
     
     init(){
+        frequency = 1000.0
+        resonance = -20.0
     }
    
     func getLPF(_ osc: AKOscillatorBank?, at freq: Double, resonance: Double) -> AKLowPassFilter {
@@ -71,7 +85,7 @@ extension AKHighPassFilter {
 
 extension Filter {
     func setFilterFreq(to freq: Double) {
-        frequency = freq
+        self.frequency = freq
     }
     
     func setFilterRes(to freq: Double) {

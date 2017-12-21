@@ -15,8 +15,9 @@ class SettingsViewController: UIViewController {
     var sustainValue = 0.5
     var releaseValue = 0.1
     var frequency = 6000.0
-    var resonance = 1000.0
+    var resonance = -20.0
     var filterSelection = 0
+    var oscSelected = 0
     var synth = SynthModel()
     
     override func viewDidLoad() {
@@ -52,6 +53,11 @@ class SettingsViewController: UIViewController {
     @IBAction func filterSelector(_ sender: UISegmentedControl) {
         filterSelection = sender.selectedSegmentIndex
     }
+    
+    @IBAction func oscillatorSelctor(_ sender: UISegmentedControl) {
+        oscSelected = sender.selectedSegmentIndex
+    }
+    
 
     // MARK: - Navigation
 
@@ -66,6 +72,7 @@ class SettingsViewController: UIViewController {
             dest?.synthModel.filterFrequency = frequency
             dest?.synthModel.resFreq = resonance
             dest?.synthModel.typeSelection = filterSelection
+            dest?.synthModel.oscSelection = oscSelected
         }
     }
 }

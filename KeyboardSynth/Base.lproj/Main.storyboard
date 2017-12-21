@@ -184,6 +184,9 @@
                                     <segment title="Triangle"/>
                                 </segments>
                                 <color key="tintColor" red="0.40392156862745099" green="0.32549019607843138" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="oscillatorSelctor:" destination="MWb-6u-MSD" eventType="valueChanged" id="FDK-OJ-7Nm"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
